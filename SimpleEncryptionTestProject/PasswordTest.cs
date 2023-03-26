@@ -16,7 +16,7 @@ namespace SimpleEncryptionTestProject
             string encryptedPass = passwordEncryptor.encryptPass("!Abc!");
 
             //Assert
-            Assert.AreEqual("!Bca!ay", encryptedPass);
+            Assert.AreEqual("!Bcaay!", encryptedPass);
         }
 
         [TestMethod]
@@ -30,7 +30,7 @@ namespace SimpleEncryptionTestProject
             string encryptedPass = passwordEncryptor.encryptPass("Ab!");
 
             //Assert
-            Assert.AreEqual("Ba!ay", encryptedPass);
+            Assert.AreEqual("Baay!", encryptedPass);
         }
 
         [TestMethod]
@@ -72,7 +72,7 @@ namespace SimpleEncryptionTestProject
             string encryptedPass = passwordEncryptor.encryptPass("!a a!");
 
             //Assert
-            Assert.AreEqual("!aay a!ay", encryptedPass);
+            Assert.AreEqual("!aay aay!", encryptedPass);
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace SimpleEncryptionTestProject
             string encryptedPass = passwordEncryptor.encryptPass("a!");
 
             //Assert
-            Assert.AreEqual("a!ay", encryptedPass);
+            Assert.AreEqual("aay!", encryptedPass);
         }
 
         [TestMethod]
@@ -100,7 +100,21 @@ namespace SimpleEncryptionTestProject
             string encryptedPass = passwordEncryptor.encryptPass("Ab! A!b !Ab !a a!");
 
             //Assert
-            Assert.AreEqual("Ba!ay B!aay !Baay !aay a!ay", encryptedPass);
+            Assert.AreEqual("Baay! B!aay !Baay !aay aay!", encryptedPass);
+        }
+
+        [TestMethod]
+        public void TestMethod8()
+        {
+            //Arrange
+            //SalaryCalculator sc = new SalaryCalculator();
+            PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
+
+            //Act
+            string encryptedPass = passwordEncryptor.encryptPass("Hello, World!");
+
+            //Assert
+            Assert.AreEqual("Ellohay, Orldway!", encryptedPass);
         }
     }
 }

@@ -5,7 +5,8 @@
             var mc = new PasswordEncryptor();
 
             Console.WriteLine($"Enter your password: ");
-            string pwd = Console.ReadLine();
+            //string pwd = Console.ReadLine();
+            string pwd = "Hello, World!";
 
             string pwdEncrypted = mc.encryptPass(pwd);
             Console.WriteLine($"Encrypted Password: {pwdEncrypted}");
@@ -88,22 +89,29 @@
                                         : Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
 
                                     encryptedChars[j + 1] = Char.IsUpper(pwdChars[j + 1]) ? char.ToUpper(pwdChars[j]) : encryptedChars[j + 1] = char.ToLower(pwdChars[j]);
+                                    encryptedChars[j + 2] = ayChars[0];
+                                    encryptedChars[j + 3] = ayChars[1];
                                 }
                                 else {
                                     //Check if first char is a symbol
                                     encryptedChars[j] = isFirstSymbol
                                         ? Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[1]) : char.ToLower(pwdChars[1])
                                         : Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
-                                    encryptedChars[j + 1] = pwdChars[j + 1];
+
+
+                                    encryptedChars[j + 1] = ayChars[0];
+                                    encryptedChars[j + 2] = ayChars[1];
+                                    encryptedChars[j + 3] = pwdChars[j + 1];
                                 }
                             }
                             else {
                                 encryptedChars[j] = pwdChars[j];
                                 encryptedChars[j + 1] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
+
+                                encryptedChars[j + 2] = ayChars[0];
+                                encryptedChars[j + 3] = ayChars[1];
                             }
 
-                            encryptedChars[j + 2] = ayChars[0];
-                            encryptedChars[j + 3] = ayChars[1];
                             pwdCharList.Add(encryptedChars);
                         }
                     }
