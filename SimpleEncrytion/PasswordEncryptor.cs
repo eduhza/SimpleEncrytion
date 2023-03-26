@@ -9,7 +9,6 @@
 
             string pwdEncrypted = mc.encryptPass(pwd);
             Console.WriteLine($"Encrypted Password: {pwdEncrypted}");
-
         }
 
         public string encryptPass(string pwd) {
