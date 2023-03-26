@@ -22,4 +22,5 @@ For example, the word "hello" would be encrypted as "ellohay". You need to repea
 |Hello, world!|Ellohay, orldway!|
 |3duard#|duard3ay#|
 |PAZ#Arthur|AZA#rthupay|
+|¡Have a Great Day!|¡Avehay a Treag Ayday!|
 
