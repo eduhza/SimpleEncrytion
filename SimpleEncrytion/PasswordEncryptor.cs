@@ -1,13 +1,13 @@
 ﻿namespace SimpleEncrytion {
     public class PasswordEncryptor {
-        public static void Main(string[] args) {
+        public static void Main(string[] args) 
+        {
             var mc = new PasswordEncryptor();
 
-            string pwd = "Ab! A!b !Ab !a a!";
-            //string pwd = Console.ReadLine();
-            Console.WriteLine($"Enter your password: {pwd}");
+            Console.WriteLine($"Enter your password: ");
+            string pwd = Console.ReadLine();
 
-            string pwdEncrypted = mc.encryptPass("Ab! A!b !Ab !a a!");
+            string pwdEncrypted = mc.encryptPass(pwd);
             Console.WriteLine($"Encrypted Password: {pwdEncrypted}");
 
         }
@@ -83,30 +83,29 @@
                             if (Char.IsLetterOrDigit(pwdChars[j])) {
                                 //Check if last char is not symbol
                                 if (char.IsLetterOrDigit(pwdChars[j + 1])) {
-                                    encryptedChars[j] = isFirstSymbol ?
-                                        encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 1]) : encryptedChars[j] = char.ToLower(pwdChars[j + 1]) :
-                                        encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
+                                    //Check if first char is a symbol
+                                    encryptedChars[j] = isFirstSymbol
+                                        ? Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 1]) : encryptedChars[j] = char.ToLower(pwdChars[j + 1])
+                                        : Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
 
                                     encryptedChars[j + 1] = Char.IsUpper(pwdChars[j + 1]) ? char.ToUpper(pwdChars[j]) : encryptedChars[j + 1] = char.ToLower(pwdChars[j]);
                                 }
                                 else {
-                                    encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
+                                    //Check if first char is a symbol
+                                    encryptedChars[j] = isFirstSymbol
+                                        ? Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[1]) : char.ToLower(pwdChars[1])
+                                        : Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
                                     encryptedChars[j + 1] = pwdChars[j + 1];
                                 }
-
-
-
-                                encryptedChars[j + 2] = ayChars[0];
-                                encryptedChars[j + 3] = ayChars[1];
-                                pwdCharList.Add(encryptedChars);
                             }
                             else {
                                 encryptedChars[j] = pwdChars[j];
                                 encryptedChars[j + 1] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
-                                encryptedChars[j + 2] = ayChars[0];
-                                encryptedChars[j + 3] = ayChars[1];
-                                pwdCharList.Add(encryptedChars);
                             }
+
+                            encryptedChars[j + 2] = ayChars[0];
+                            encryptedChars[j + 3] = ayChars[1];
+                            pwdCharList.Add(encryptedChars);
                         }
                     }
                     j++;
