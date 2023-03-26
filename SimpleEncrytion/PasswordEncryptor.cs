@@ -6,7 +6,7 @@
 
             Console.WriteLine($"Enter your password: ");
             //string pwd = Console.ReadLine();
-            string pwd = "Hello, World!";
+            string pwd = "PAZ#Arthur";
 
             string pwdEncrypted = mc.encryptPass(pwd);
             Console.WriteLine($"Encrypted Password: {pwdEncrypted}");
@@ -62,7 +62,7 @@
                                 //If next is a symbol, get next, keep symbol and check if last, if not j++
                                 //Check position Identation
                                 encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 2]) : encryptedChars[j] = char.ToLower(pwdChars[j + 2]);
-                                //encryptedChars[j + 1] = pwdChars[j + 1];
+                                encryptedChars[j + 1] = pwdChars[j + 1];
 
                                 j++;
 
