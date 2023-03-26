@@ -2,7 +2,7 @@
 
 This C# Console App was made to complete a simple Encryption Challenge that I found on the internet.
 
-I have also implemented an **Unit Test Driven** to help me during the development.
+I have also implemented **Unit Test Driven** to help me during the development.
 
 
 ## Challenge
