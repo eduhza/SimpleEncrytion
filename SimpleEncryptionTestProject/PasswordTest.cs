@@ -128,5 +128,18 @@ namespace SimpleEncryptionTestProject
             //Assert
             Assert.AreEqual("¡Avehay aay Reatgay Ayday!", encryptedPass);
         }
+
+        [TestMethod]
+        public void TestMethod10() {
+            //Arrange
+            //SalaryCalculator sc = new SalaryCalculator();
+            PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
+
+            //Act
+            string encryptedPass = passwordEncryptor.encryptPass("Pa$$oca");
+
+            //Assert
+            Assert.AreEqual("Ao$$capay", encryptedPass);
+        }
     }
 }
