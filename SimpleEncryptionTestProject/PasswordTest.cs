@@ -104,8 +104,7 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod8()
-        {
+        public void TestMethod8() {
             //Arrange
             //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
@@ -115,6 +114,19 @@ namespace SimpleEncryptionTestProject
 
             //Assert
             Assert.AreEqual("Ellohay, Orldway!", encryptedPass);
+        }
+
+        [TestMethod]
+        public void TestMethod9() {
+            //Arrange
+            //SalaryCalculator sc = new SalaryCalculator();
+            PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
+
+            //Act
+            string encryptedPass = passwordEncryptor.encryptPass("¡Have a Great Day!");
+
+            //Assert
+            Assert.AreEqual("¡Avehay aay Reatgay Ayday!", encryptedPass);
         }
     }
 }

@@ -6,7 +6,7 @@
 
             Console.WriteLine($"Enter your password: ");
             //string pwd = Console.ReadLine();
-            string pwd = "PAZ#Arthur";
+            string pwd = "!Ab";
 
             string pwdEncrypted = mc.encryptPass(pwd);
             Console.WriteLine($"Encrypted Password: {pwdEncrypted}");
@@ -34,89 +34,115 @@
                 bool isFirstSymbol = !char.IsLetterOrDigit(pwdChars[0]);
                 bool isLastSymbol = !char.IsLetterOrDigit(pwdChars.Last());
 
-                int j = 0;
-                while (j < pwdChars.Length - 1) {
-
-                    //Check if current position is a symbol
-                    if (!char.IsLetterOrDigit(pwdChars[j])) {
-                        encryptedChars[j] = pwdChars[j];
-                        //check if last
-                        if (j == pwdChars.Length - 2) {
-                            isLast = true;
-                            encryptedChars[j + 1] = pwdChars[j + 1];
-                            encryptedChars[j + 2] = ayChars[0];
-                            encryptedChars[j + 3] = ayChars[1];
-                            pwdCharList.Add(encryptedChars);
+                if (pwdChars.Length == 1) {
+                    encryptedChars[0] = pwdChars[0];
+                    encryptedChars[1] = ayChars[0];
+                    encryptedChars[2] = ayChars[1];
+                    pwdCharList.Add(encryptedChars);
+                }
+                else {
+                    //Get index of first char that is not symbol 
+                    int k = 0;
+                    while (true) {
+                        if (char.IsLetterOrDigit(pwdChars[k])) {
                             break;
                         }
+                        else {
+                            k++;
+                        }
                     }
-                    else {
-                        //Check if is not last char to change
-                        if (j < pwdChars.Length - 2) {
-                            //Check is if number or letter
-                            if (char.IsLetterOrDigit(pwdChars[j + 1])) {
-                                //Check position Identation
-                                encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 1]) : encryptedChars[j] = char.ToLower(pwdChars[j + 1]);
-                            }
-                            else {
-                                //If next is a symbol, get next, keep symbol and check if last, if not j++
-                                //Check position Identation
-                                encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 2]) : encryptedChars[j] = char.ToLower(pwdChars[j + 2]);
+
+                    int j = 0;
+                    while (j < pwdChars.Length - 1) {
+
+                        //Check if current position is a symbol
+                        if (!char.IsLetterOrDigit(pwdChars[j])) {
+                            encryptedChars[j] = pwdChars[j];
+                            //check if last
+                            if (j == pwdChars.Length - 2) {
+                                isLast = true;
                                 encryptedChars[j + 1] = pwdChars[j + 1];
+                                encryptedChars[j + 2] = ayChars[0];
+                                encryptedChars[j + 3] = ayChars[1];
+                                pwdCharList.Add(encryptedChars);
+                                break;
+                            }
+                        }
+                        else {
+                            //Check if is not last char to change
+                            if (j < pwdChars.Length - 2) {
+                                //Check is if number or letter
+                                if (char.IsLetterOrDigit(pwdChars[j + 1])) {
+                                    //Check position Identation
+                                    encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 1]) : encryptedChars[j] = char.ToLower(pwdChars[j + 1]);
+                                }
+                                else {
+                                    //If next is a symbol, get next, keep symbol and check if last, if not j++
+                                    //Check position Identation
+                                    encryptedChars[j] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 2]) : encryptedChars[j] = char.ToLower(pwdChars[j + 2]);
+                                    encryptedChars[j + 1] = pwdChars[j + 1];
 
-                                j++;
+                                    j++;
 
-                                //check if last
-                                if (j == pwdChars.Length - 2) {
-                                    isLast = true;
+                                    //check if last
+                                    if (j == pwdChars.Length - 2) {
+                                        isLast = true;
+                                    }
+
                                 }
 
                             }
+                            else {
+                                isLast = true;
+                            }
 
-                        }
-                        else {
-                            isLast = true;
-                        }
+                            if (isLast) {
+                                //Check if current position is not symbol
+                                if (Char.IsLetterOrDigit(pwdChars[j])) {
+                                    //Check if last char is not symbol
+                                    if (char.IsLetterOrDigit(pwdChars[j + 1])) {
 
-                        if (isLast) {
-                            //Check if current position is not symbol
-                            if (Char.IsLetterOrDigit(pwdChars[j])) {
-                                //Check if last char is not symbol
-                                if (char.IsLetterOrDigit(pwdChars[j + 1])) {
-                                    //Check if first char is a symbol
-                                    encryptedChars[j] = isFirstSymbol
-                                        ? Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[j + 1]) : encryptedChars[j] = char.ToLower(pwdChars[j + 1])
-                                        : Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
+                                        encryptedChars[j] = Char.IsUpper(pwdChars[j])
+                                            ? char.ToUpper(pwdChars[j + 1])
+                                            : char.ToLower(pwdChars[j + 1]);
 
-                                    encryptedChars[j + 1] = Char.IsUpper(pwdChars[j + 1]) ? char.ToUpper(pwdChars[j]) : encryptedChars[j + 1] = char.ToLower(pwdChars[j]);
+                                        //First char that is not symbol
+                                        encryptedChars[j + 1] = char.IsUpper(encryptedChars[j + 1])
+                                            ? char.ToUpper(pwdChars[k])
+                                            : char.ToLower(pwdChars[k]);
+
+                                        encryptedChars[j + 2] = ayChars[0];
+                                        encryptedChars[j + 3] = ayChars[1];
+                                    }
+                                    else {
+                                        //First char that is not symbol
+                                        encryptedChars[j] = Char.IsUpper(pwdChars[j])
+                                            ? char.ToUpper(pwdChars[k])
+                                            : char.ToLower(pwdChars[k]);
+
+
+                                        encryptedChars[j + 1] = ayChars[0];
+                                        encryptedChars[j + 2] = ayChars[1];
+                                        encryptedChars[j + 3] = pwdChars[j + 1];
+                                    }
+                                }
+                                else {
+                                    encryptedChars[j] = pwdChars[j];
+                                    encryptedChars[j + 1] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
+
                                     encryptedChars[j + 2] = ayChars[0];
                                     encryptedChars[j + 3] = ayChars[1];
                                 }
-                                else {
-                                    //Check if first char is a symbol
-                                    encryptedChars[j] = isFirstSymbol
-                                        ? Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[1]) : char.ToLower(pwdChars[1])
-                                        : Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
 
-
-                                    encryptedChars[j + 1] = ayChars[0];
-                                    encryptedChars[j + 2] = ayChars[1];
-                                    encryptedChars[j + 3] = pwdChars[j + 1];
-                                }
+                                pwdCharList.Add(encryptedChars);
                             }
-                            else {
-                                encryptedChars[j] = pwdChars[j];
-                                encryptedChars[j + 1] = Char.IsUpper(pwdChars[j]) ? char.ToUpper(pwdChars[0]) : char.ToLower(pwdChars[0]);
-
-                                encryptedChars[j + 2] = ayChars[0];
-                                encryptedChars[j + 3] = ayChars[1];
-                            }
-
-                            pwdCharList.Add(encryptedChars);
                         }
+                        j++;
                     }
-                    j++;
                 }
+
+
+                
             }
 
             List<string> encryptedList = new List<string>();
