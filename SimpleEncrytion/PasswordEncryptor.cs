@@ -5,8 +5,8 @@
             var mc = new PasswordEncryptor();
 
             Console.WriteLine($"Enter your password: ");
-            //string pwd = Console.ReadLine();
-            string pwd = "Pa$$oca";
+            string pwd = Console.ReadLine();
+            //string pwd = "Pa$$oca";
 
             string pwdEncrypted = mc.encryptPass(pwd);
             Console.WriteLine($"Encrypted Password: {pwdEncrypted}");
