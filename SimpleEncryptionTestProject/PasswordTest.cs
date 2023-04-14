@@ -1,15 +1,11 @@
 using SimpleEncrytion;
 
-namespace SimpleEncryptionTestProject
-{
+namespace SimpleEncryptionTestProject {
     [TestClass]
-    public class PasswordTest
-    {
+    public class PasswordTest {
         [TestMethod]
-        public void TestMethod1()
-        {
+        public void TestMethod1() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -20,10 +16,8 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod2()
-        {
+        public void TestMethod2() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -34,10 +28,8 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod3()
-        {
+        public void TestMethod3() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -48,10 +40,8 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod4()
-        {
+        public void TestMethod4() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -62,10 +52,8 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod5()
-        {
+        public void TestMethod5() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -76,10 +64,8 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod6()
-        {
+        public void TestMethod6() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -90,10 +76,8 @@ namespace SimpleEncryptionTestProject
         }
 
         [TestMethod]
-        public void TestMethod7()
-        {
+        public void TestMethod7() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -106,7 +90,6 @@ namespace SimpleEncryptionTestProject
         [TestMethod]
         public void TestMethod8() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -119,7 +102,6 @@ namespace SimpleEncryptionTestProject
         [TestMethod]
         public void TestMethod9() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
@@ -132,7 +114,6 @@ namespace SimpleEncryptionTestProject
         [TestMethod]
         public void TestMethod10() {
             //Arrange
-            //SalaryCalculator sc = new SalaryCalculator();
             PasswordEncryptor passwordEncryptor = new PasswordEncryptor();
 
             //Act
